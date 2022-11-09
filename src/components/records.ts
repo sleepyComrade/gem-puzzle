@@ -50,7 +50,6 @@ export class Records extends Control {
       this.el.classList.remove('puzzle__records-active');
       this.onClick();
     }
-    console.log(data);
     
     this.setTables(data);
   }
