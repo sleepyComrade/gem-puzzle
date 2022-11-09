@@ -11,7 +11,7 @@ export class Records extends Control {
   recordItems: Record[][];
   closeBtn: Control;
   onClick: () => void;
-  constructor(parent: HTMLElement, tag: string, className: string, content: string, data: RecordData) {
+  constructor(parent: HTMLElement, tag: string, className: string, content: string, data: RecordData[][]) {
     super(parent, tag, className, content);
     this.records = new Control(this.el, 'div', 'records__inner-wrap', '');
     this.title = new Control(this.records.el, 'h2', 'records__title', 'Best Time Records');
@@ -54,7 +54,7 @@ export class Records extends Control {
     this.setTables(data);
   }
 
-  setTables(data: any) {
+  setTables(data: RecordData[][]) {
     this.tables.forEach((el, j) => {
       for (let i = 0; i < 10; i++) {
         const record = new Record(el.el, 'div', 'records__record', '');

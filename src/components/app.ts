@@ -5,7 +5,7 @@ import { BottomPanel } from "./bottomPanel";
 import { Overlay } from "./overlay";
 import { Puzzle } from "./puzzle";
 import { Records } from "./records";
-import { data } from "./recordsData";
+import { data, RecordData, lsData } from "./recordsData";
 import { Confirmation } from "./confirmation";
 
 export class App {
@@ -16,18 +16,12 @@ export class App {
   bottomPanel: BottomPanel;
   overlay: Overlay;
   records: Records;
-  data: any;
-  savedGame: any;
+  data: RecordData[][];
+  savedGame: lsData;
   confirm: Confirmation;
-  emptyData: any;
+  emptyData: lsData;
   constructor(parent: HTMLElement) {
     this.data = data;
-    this.emptyData = {
-      tiles: {}
-    }
-    this.savedGame = {
-      tiles: {}
-    };
 
     this.el = document.createElement('div');
     this.el.className = 'main-wrap';
@@ -145,7 +139,7 @@ export class App {
       let blockKey = this.puzzle.columns;
       const timeArr: string[]= [];
       const movesArr: string[] = [];
-      this.data[blockKey - 2].forEach((el: any) => {
+      this.data[blockKey - 2].forEach((el: RecordData) => {
         timeArr.push(el.time);
         movesArr.push(el.moves);
       });

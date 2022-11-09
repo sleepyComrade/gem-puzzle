@@ -1,6 +1,7 @@
 import { Control } from "./control";
 import { Tile } from "./tile";
 import { WinPopup } from "./winningPopup";
+import { tilesData } from "./recordsData";
 
 export class Puzzle extends Control {
   tile: Tile;
@@ -19,7 +20,7 @@ export class Puzzle extends Control {
   isSaved: boolean;
   currentDragInx: number;
   overlayMessage: Control;
-  constructor(parent: HTMLElement, tag: string, className: string, content: string, tilesData: any) {
+  constructor(parent: HTMLElement, tag: string, className: string, content: string, tilesData: tilesData) {
     super(parent, tag, className, content);
     this.isSaved = tilesData.columns ? true : false;
     this.columns = tilesData.columns ? tilesData.columns : 4;
@@ -307,7 +308,9 @@ export class Puzzle extends Control {
     }
   }
 
-  loadGame(data: any) {
+  loadGame(data: tilesData) {
+    console.log(data);
+    
     this.indexes = [];
     if (this.tiles.length) {
       this.tiles.forEach(el => el.destroy());
