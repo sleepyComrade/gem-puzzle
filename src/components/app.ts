@@ -149,12 +149,19 @@ export class App {
           return arr;
         }
       })
-      if (!testArr[9] || +testArr[9][0] > +time[0] || +testArr[9][1] > +time[1] || +testArr[9][2] > +time[2]) {
+      
+      if (!testArr[9] ||
+          +testArr[9][0] > +time[0] ||
+          +testArr[9][1] > +time[1] && +testArr[9][0] >= +time[0] ||
+          +testArr[9][2] > +time[2] && +testArr[9][1] >= +time[1] && +testArr[9][0] >= +time[0]) {
         testArr[9] = [time[0], time[1], time[2]];
         movesArr[9] = time[3];
       }
       for (let i = 9; i > 0; i--) {
-        if (!testArr[i - 1] || +testArr[i - 1][0] > +testArr[i][0] || +testArr[i - 1][1] > +testArr[i][1] || +testArr[i - 1][2] > +testArr[i][2]) {
+        if (!testArr[i - 1] ||
+            +testArr[i - 1][0] > +testArr[i][0] ||
+            +testArr[i - 1][1] > +testArr[i][1] && +testArr[i - 1][0] >= +testArr[i][0] ||
+            +testArr[i - 1][2] > +testArr[i][2] && +testArr[i - 1][1] >= +testArr[i][1] && +testArr[i - 1][0] >= +testArr[i][0]) {
           let temp = testArr[i];
           testArr[i] = testArr[i - 1];
           testArr[i - 1] = temp;

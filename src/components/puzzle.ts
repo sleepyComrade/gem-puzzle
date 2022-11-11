@@ -309,8 +309,6 @@ export class Puzzle extends Control {
   }
 
   loadGame(data: tilesData) {
-    console.log(data);
-    
     this.indexes = [];
     if (this.tiles.length) {
       this.tiles.forEach(el => el.destroy());
