@@ -32,6 +32,18 @@ export class App {
       this.savedGame = saved;
       this.emptyData = saved;
       this.data = saved.records;
+    } else {
+      const initialData:lsData = {
+        info: null,
+        records: this.data,
+        tiles: {
+          columns: 0,
+          coordinates: [],
+          test: [],
+        },
+      };
+      this.emptyData = initialData;
+      this.savedGame = initialData;
     }
 
     this.confirm = new Confirmation(this.el, 'div', 'puzzle__confirm-wrap', '');

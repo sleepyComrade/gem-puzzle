@@ -11,7 +11,7 @@ export interface tilesData {
 }
 
 export interface lsData {
-  info: string[];
+  info: string[] | null;
   records: RecordData[][];
   tiles: tilesData;
 }
