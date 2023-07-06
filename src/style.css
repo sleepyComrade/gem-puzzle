@@ -177,7 +177,7 @@
 }
 
 .puzzle__button {
-  min-width: 80px;
+  min-width: 120px;
   padding: 5px 10px;
   color: rgb(220, 250, 255);
   font-size: clamp(1.13rem, calc(0.70rem + 2.11vw), 1.63rem);

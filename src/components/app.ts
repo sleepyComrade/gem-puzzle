@@ -27,8 +27,8 @@ export class App {
     this.el.className = 'main-wrap';
     parent.append(this.el);
 
-    if (localStorage.sleepyComrade) {
-      const saved = JSON.parse(localStorage.getItem('sleepyComrade'));
+    if (localStorage.sleepyComradeGem) {
+      const saved = JSON.parse(localStorage.getItem('sleepyComradeGem'));
       this.savedGame = saved;
       this.emptyData = saved;
       this.data = saved.records;
@@ -49,7 +49,7 @@ export class App {
       this.bottomPanel.changeValue(this.savedGame.tiles.columns + '');
     }
 
-    if (localStorage.sleepyComrade) {
+    if (localStorage.sleepyComradeGem) {
       this.gameInfo.pauseTimer();
       this.buttonsBlock.activeLoad();
       this.buttonsBlock.clickLoadBtn();
@@ -191,7 +191,7 @@ export class App {
     this.savedGame.records = this.data;
     this.savedGame.tiles = this.puzzle.saveData();
     this.savedGame.info = this.gameInfo.getInfo();
-    localStorage.setItem('sleepyComrade', JSON.stringify(this.savedGame));
+    localStorage.setItem('sleepyComradeGem', JSON.stringify(this.savedGame));
   }
 
   startNewGame() {
