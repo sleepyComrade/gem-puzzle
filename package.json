@@ -1,4 +1,5 @@
 {
+  "homepage": "http://sleepyComrade.github.io/gem-puzzle",
   "name": "my-webpack-project",
   "version": "1.0.0",
   "description": "My webpack project",
@@ -9,13 +10,16 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@webpack-cli/generators": "^2.5.0",
     "css-loader": "^6.7.1",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.54.8",
